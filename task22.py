@@ -11,6 +11,8 @@ import pathlib
 import numpy as np
 #from MainWindow import Ui_MainWindow
 
+# testing hamza jamal
+
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
