@@ -27,6 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+    added_signals_list = []
 
         # Signal Composer
         #############################################
@@ -43,7 +44,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.rangeslider.valueChanged.connect(self.draw_sine_wave)
         # Buttons:
         self.ui.ShowButton.clicked.connect(self.show_initialized_graph)
-        # self.ui.AddButton.clicked.connect(self.add_signal_plot)
+        self.ui.AddButton.clicked.connect(self.add_signal_plot)
         #############################################
         # Signal Composer
 
@@ -91,7 +92,7 @@ class MainWindow(QtWidgets.QMainWindow):
         time_range = np.arange(0, self.range, 0.2)
         self.sine_wave = self.magnitude * np.sin((2 * np.pi * self.frequency * time_range / 4000) + ((np.pi / 180) * self.phase))
         axes = self.sine_wave_figure.gca()
-        self.sine_wave_figure.set_facecolor((1, 0.6, 0.5))
+        #self.sine_wave_figure.set_facecolor((1, 0.6, 0.5))
         axes.cla()
         axes.grid(True)
         axes.set_facecolor((1, 1, 1))
@@ -109,8 +110,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.sine_wave_canvas.flush_events()
 
     def add_signal_plot(self):
-        self.sinusoidal_wave_summation += self.draw_sine_wave()
+        #self.sinusoidal_wave_summation += self.draw_sine_wave()
         self.ui.comboBox.addItem(f"sine wave: {self.magnitude}Amp,{self.frequency}HZ,and {self.phase}˚ phase")
+
 
     ############################################################
     # Signal Composer
@@ -127,4 +129,5 @@ if __name__ == '__main__':
     main = MainWindow()
     main.show()
     sys.exit(app.exec_())
+
 
