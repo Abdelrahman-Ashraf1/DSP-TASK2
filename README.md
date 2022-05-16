@@ -1,4 +1,4 @@
-# DSP-TASK2
+# Signal_viewer
 
 ### Team Members:
 
